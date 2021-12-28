@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         UserPo userPo = userPoOptional.get();
         Set<RolePo> roles = userPo.getRoles();
-        List<String> roleNames = roles.stream().map(RolePo::getRoleName).collect(Collectors.toList());
+        List<String> roleNames = roles.stream().map(rolePo -> "ROLE_" + rolePo.getRoleName()).collect(Collectors.toList());
         return UserInfo.builder()
                 .username(userPo.getUsername())
                 .password(userPo.getPassword())

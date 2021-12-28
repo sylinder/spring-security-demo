@@ -8,7 +8,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.HashSet;
 
 @Data
 @Builder
@@ -21,21 +20,6 @@ public class UserInfo implements UserDetails {
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return new HashSet<>();
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
-    }
 
     @Override
     public boolean isAccountNonExpired() {
